@@ -4,6 +4,8 @@ A collection of reusable AI agent skills (slash commands) for [Claude Code](http
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+[![AgentHub](https://agenthub.nullorder.org/badge.svg)](https://agenthub.nullorder.org)
+
 ## Quick Start
 
 ### Via AgentHub (recommended for Claude Code)
