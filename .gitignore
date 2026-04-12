@@ -1,0 +1,22 @@
+# Internal plans
+plans/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if any tooling added later)
+node_modules/
+
+# Pi
+.pi/
+
+# Claude Code
+.claude/
