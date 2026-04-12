@@ -39,7 +39,7 @@ ln -s $(pwd)/ani-skills/skills/<category>/<skill-name> ~/.claude/skills/<skill-n
 
 | Skill | Category | Description |
 |-------|----------|-------------|
-| *Coming soon* | | |
+| [commit-msg](skills/development/commit-msg/) | development | Write well-structured git commit messages |
 
 ## Structure
 
