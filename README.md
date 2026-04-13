@@ -8,50 +8,69 @@ A collection of reusable AI agent skills (slash commands) for [Claude Code](http
 
 ## Quick Start
 
-### Via AgentHub (recommended for Claude Code)
+Two install paths — pick whichever fits. They trade off discoverability against
+how the skill is invoked.
 
-Install the [AgentHub](https://agenthub.nullorder.org) marketplace plugin, then browse and install skills directly:
+| Path | How to install | How to invoke | When to use |
+|------|----------------|---------------|-------------|
+| **AgentHub** (plugin) | `/plugin marketplace add nullorder/agenthub` → `/plugin install ani-skills@agenthub` | `/ani-skills:<skill-name>` | One-click install, versioned updates. Skill names are namespaced under the plugin. |
+| **Manual** (standalone) | `git clone` + `just install-all` (or `cp`/`ln -s` — see below) | `/<skill-name>` | Short, unnamespaced names. Updates are pull-and-relink. |
+
+### AgentHub
+
+Install the [AgentHub](https://agenthub.nullorder.org) marketplace, then install
+this plugin:
 
 ```sh
 /plugin marketplace add nullorder/agenthub
+/plugin install ani-skills@agenthub
+/reload-plugins
 ```
 
-### Manual Install
+Skills are invoked with the plugin namespace prefix — e.g. `/ani-skills:commit-msg`.
+Claude Code always namespaces plugin skills to prevent conflicts between plugins;
+the prefix is the plugin's `name` field and cannot be removed while using the
+plugin system.
 
-**Install a single skill** — copy the skill folder into your project or global config:
+### Manual
 
-```sh
-# Project-level (available in this project only)
-cp -r skills/<category>/<skill-name> .claude/skills/<skill-name>
-
-# Global (available in all projects)
-cp -r skills/<category>/<skill-name> ~/.claude/skills/<skill-name>
-```
-
-Then invoke it in Claude Code with `/<skill-name>`.
-
-**Use the whole collection** — clone and symlink:
+Install everything with the justfile:
 
 ```sh
 git clone https://github.com/anistark/ani-skills.git
-ln -s $(pwd)/ani-skills/skills/<category>/<skill-name> ~/.claude/skills/<skill-name>
+cd ani-skills
+just install-all          # symlinks every skill into ~/.claude/skills/
+# or: just install commit-msg   # one skill at a time
 ```
+
+Or without `just` — copy or symlink a single skill into your project or global
+config:
+
+```sh
+# Global (available in all projects)
+cp -r skills/<skill-name> ~/.claude/skills/<skill-name>
+# or: ln -s $(pwd)/skills/<skill-name> ~/.claude/skills/<skill-name>
+
+# Project-level (available in this project only)
+cp -r skills/<skill-name> .claude/skills/<skill-name>
+```
+
+Then invoke with the plain name: `/<skill-name>` (e.g. `/commit-msg`).
 
 ## Skills
 
 | Skill | Category | Description |
 |-------|----------|-------------|
-| [commit-msg](skills/development/commit-msg/) | development | Write well-structured git commit messages |
+| [commit-msg](skills/commit-msg/) | development | Write well-structured git commit messages |
 
 ## Structure
 
 ```sh
 skills/
-  <category>/
-    <skill-name>/
-      SKILL.md          # Skill definition (required)
-      templates/        # Supporting templates (optional)
-      examples/         # Usage examples (optional)
+  <skill-name>/
+    SKILL.md          # Skill definition (required)
+    templates/        # Supporting templates (optional)
+    examples/         # Usage examples (optional)
 ```
 
 ## Contributing

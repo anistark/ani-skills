@@ -3,10 +3,8 @@
 # List all skills
 list:
     @find skills -name "SKILL.md" | sort | while read f; do \
-        dir=$(dirname "$f"); \
-        name=$(basename "$dir"); \
-        category=$(basename "$(dirname "$dir")"); \
-        echo "  $category/$name"; \
+        name=$(basename "$(dirname "$f")"); \
+        echo "  $name"; \
     done
 
 # Validate all skills have required frontmatter (name + description)
@@ -29,12 +27,11 @@ validate:
 count:
     @echo "$(find skills -name "SKILL.md" | wc -l | tr -d ' ') skills"
 
-# Install a skill globally: just install development/commit-msg
-install path:
+# Install a skill globally: just install commit-msg
+install name:
     @mkdir -p ~/.claude/skills && \
-    name=$(basename "{{path}}") && \
-    ln -sf "$(pwd)/skills/{{path}}" ~/.claude/skills/"$name" && \
-    echo "Installed $name → ~/.claude/skills/$name"
+    ln -sf "$(pwd)/skills/{{name}}" ~/.claude/skills/"{{name}}" && \
+    echo "Installed {{name}} → ~/.claude/skills/{{name}}"
 
 # Install all skills globally (replaces existing)
 install-all:

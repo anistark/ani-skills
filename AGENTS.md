@@ -22,19 +22,23 @@ ani-skills/
 ├── LICENSE                # MIT
 ├── CONTRIBUTING.md        # How to contribute skills
 ├── AGENTS.md              # This file — agent instructions
+├── .claude-plugin/
+│   └── plugin.json        # Plugin manifest (name, version, author)
 ├── .gitignore             # plans/, .DS_Store, etc.
 │
-├── skills/                # All skills live here
-│   ├── <category>/        # Domain-based grouping
-│   │   ├── <skill-name>/  # One folder per skill
-│   │   │   ├── SKILL.md   # Required — frontmatter + instructions
-│   │   │   ├── templates/ # Optional supporting templates
-│   │   │   └── examples/  # Optional usage examples
-│   │   └── ...
+├── skills/                # All skills live here (flat layout)
+│   ├── <skill-name>/      # One folder per skill
+│   │   ├── SKILL.md       # Required — frontmatter + instructions
+│   │   ├── templates/     # Optional supporting templates
+│   │   └── examples/      # Optional usage examples
 │   └── ...
 │
 └── plans/                 # Internal only (gitignored)
 ```
+
+The flat `skills/<skill-name>/` layout is required by the Claude Code plugin
+loader — it does not recurse into category sub-folders. Category is tracked in
+the README skills table, not in the directory structure.
 
 ---
 
@@ -77,7 +81,6 @@ Optional frontmatter fields:
 ### Naming
 
 - Skill names: lowercase-with-hyphens (e.g., `code-review`, `tdd-cycle`)
-- Category names: lowercase, singular domain (e.g., `development`, `devops`)
 
 ### Quality
 
@@ -88,7 +91,8 @@ Optional frontmatter fields:
 
 ### Categories
 
-Only create a category directory when the first skill goes in. Current categories:
+Categories are metadata for the README index table, not directory names. Use
+them to help users browse. Current categories:
 
 | Category        | Description                                       |
 |-----------------|---------------------------------------------------|
@@ -115,5 +119,6 @@ Only create a category directory when the first skill goes in. Current categorie
 ## Gotchas
 
 - **`plans/` is gitignored.** Internal planning docs — don't commit them.
-- **Don't create empty categories.** Only add a category folder when you have a skill to put in it.
+- **Flat `skills/` only.** Never nest skills under category sub-folders — the Claude Code plugin loader won't find them.
 - **Skills are self-contained.** Each skill folder should work independently when copied elsewhere.
+- **Plugin-invoked names are namespaced.** When installed via the agenthub marketplace, a skill is invoked as `/ani-skills:<skill-name>`. Only standalone installs (e.g., `just install`) surface as plain `/<skill-name>`.

@@ -4,8 +4,10 @@ Thanks for your interest in contributing skills!
 
 ## Adding a New Skill
 
-1. Pick the right category under `skills/` (or propose a new one if nothing fits)
-2. Create a folder: `skills/<category>/<your-skill-name>/`
+1. Create a folder directly under `skills/`: `skills/<your-skill-name>/`
+   (The layout is flat — no category sub-folders. Claude Code's plugin loader
+   does not recurse into nested directories.)
+2. Pick a category tag for the README index (see the list in `AGENTS.md`)
 3. Add a `SKILL.md` with this format:
 
 ```yaml
@@ -21,7 +23,7 @@ description: >
 ```
 
 4. Optionally add `templates/` or `examples/` folders alongside `SKILL.md`
-5. Update the skills index table in `README.md`
+5. Update the skills index table in `README.md` (with the category tag)
 6. Submit a PR
 
 ## Skill Guidelines
