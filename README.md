@@ -77,6 +77,7 @@ Then invoke with the plain name: `/<skill-name>` (e.g. `/commit-msg`).
 | Skill | Category | Description |
 |-------|----------|-------------|
 | [commit-msg](skills/commit-msg/) | development | Write well-structured git commit messages |
+| [sync-upstream](skills/sync-upstream/) | productivity | Sync current branch with upstream/origin, resolving conflicts interactively |
 
 ## Structure
 
