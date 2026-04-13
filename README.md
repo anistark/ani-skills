@@ -6,6 +6,8 @@ A collection of reusable AI agent skills (slash commands) for [Claude Code](http
 
 [![AgentHub](https://agenthub.nullorder.org/badge.svg)](https://agenthub.nullorder.org)
 
+![ani-skills](https://github.com/user-attachments/assets/9cb2e242-e848-4f03-8e3d-cf11ff4068f9)
+
 ## Quick Start
 
 Two install paths — pick whichever fits. They trade off discoverability against
