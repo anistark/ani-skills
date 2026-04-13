@@ -77,6 +77,20 @@ Include impact details if relevant.>
 - Compare previous vs. new behavior when relevant
 - Can be omitted for truly trivial changes (typo fixes, single-line configs)
 
+### Code and Identifiers
+
+- **Inline code**: wrap function names, file paths, flags, commands, and identifiers in single backticks — e.g. `` `parse_config()` ``, `` `--dry-run` ``, `` `src/auth.py` ``.
+- **Code blocks**: use fenced blocks with a language hint for multi-line snippets:
+
+  ````
+  ```py
+  result = parse_config(path, strict=True)
+  ```
+  ````
+
+  Common hints: `py`, `js`, `ts`, `go`, `rs`, `sh`, `bash`, `json`, `yaml`, `toml`, `sql`, `diff`. Use `text` for plain output.
+- Backticks render in GitHub, GitLab, and most `git log` viewers; unquoted identifiers are easy to misread.
+
 ### Trailers (appended after body, separated by blank line)
 
 Use only when applicable:
