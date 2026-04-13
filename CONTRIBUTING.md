@@ -56,18 +56,23 @@ marketplace cache, so edits are picked up with each `/reload-plugins`.
 
 ## Releasing
 
-Once a skill is reviewed and merged to `main`:
+Publishing a new skill to agenthub users is a **two-PR** flow:
 
-1. Push to `main` (done by the merge).
-2. Optionally bump `version` in `.claude-plugin/plugin.json` if you want a
-   clean changelog entry. It's cosmetic — agenthub re-fetches live from this
-   repo's default branch, so content propagates regardless of the version
-   string. Bumping without also updating agenthub's `marketplace.json` will
-   cause the registry-displayed version to drift.
-3. No agenthub PR is needed unless you're changing marketplace metadata
-   (name, description, category, tags).
+1. **This repo** — merge the skill to `main`, then bump `version` in
+   `.claude-plugin/plugin.json` (semver: patch for fixes, minor for new
+   skills, major for breaking changes).
+2. **agenthub** — open a PR against [nullorder/agenthub](https://github.com/nullorder/agenthub)
+   editing `plugins/ani-skills.json` so its `version` matches the new
+   value. (Do not edit `.claude-plugin/marketplace.json` there — it's
+   auto-generated from `plugins/`.)
 
-End users pick up the new skill with:
+Both versions must match. If the plugin's `version` in this repo advances
+but the agenthub registry entry still points at the old version, end users
+running `/plugin update ani-skills@agenthub` get `"already at the latest
+version"` and the new skill never reaches them. The update command is
+gated on the marketplace-declared version, not on git HEAD.
+
+Once both PRs merge, end users refresh with:
 
 ```sh
 /plugin marketplace update agenthub

@@ -33,19 +33,19 @@ the prefix is the plugin's `name` field and cannot be removed while using the
 plugin system.
 
 **Pulling in new skills later.** New skills added to this repo are not pushed
-to your machine automatically — the plugin is cached at install time. To
-refresh:
+to your machine automatically — the plugin is cached at install time. Once a
+new version lands in agenthub (see [CONTRIBUTING.md](CONTRIBUTING.md#releasing)
+for how that happens), refresh with:
 
 ```sh
-/plugin marketplace update agenthub   # re-fetch the catalog + plugin source
-/plugin update ani-skills@agenthub    # apply any changes to this plugin
+/plugin marketplace update agenthub   # re-fetch the agenthub catalog
+/plugin update ani-skills@agenthub    # pull the new version of this plugin
 /reload-plugins                        # re-scan and register new skills
 ```
 
-Agenthub points at this repo's default branch, so pushing here is sufficient
-— no version bump or marketplace PR is needed when adding a new skill.
-Bumping `version` in `.claude-plugin/plugin.json` is still good practice for
-release hygiene and changelogs.
+If `/plugin update` reports `"already at the latest version"` even though
+you expect a new skill, agenthub's registry hasn't been bumped yet — wait
+until the next agenthub release.
 
 ### Manual
 
