@@ -17,12 +17,27 @@ Write a git commit message for the staged changes following open source best pra
    - `git log --oneline -10` to match the repo's existing style
    - `git status` to check for anything unstaged that might be missing
 
-2. **Analyze the changes** — understand:
+2. **Assess commit size and scope** — decide if this should be one commit or several.
+
+   Flag the commit as "big and mixed" if **two or more** of these are true:
+   - More than ~10 files changed, or more than ~300 lines added/removed
+   - Changes span **multiple distinct types** (e.g. `feat` + `fix` + `docs`, or `refactor` + `feat`)
+   - Changes touch **unrelated areas/modules** (e.g. `src/auth/` and `docs/` and `ci/`)
+   - Mixes user-facing behavior change with unrelated chores/formatting
+
+   If flagged, **stop and ask the user**:
+   - Summarize the distinct logical groups you see (e.g. "1) auth refactor in `src/auth/`, 2) unrelated README fixes, 3) CI config tweak").
+   - Ask: "This looks like it could be split into N commits. Do you want (a) separate commits per group, or (b) a single combined commit?"
+   - If the user chooses **separate commits**: propose a staging plan (`git reset` then `git add` per group), draft one message per group, and commit them in sequence.
+   - If the user chooses **single commit**: proceed with one message that covers all groups.
+   - Skip this prompt entirely for small or cohesive diffs — don't nag on trivial changes.
+
+3. **Analyze the changes** — understand:
    - What was changed (files, functions, logic)
    - Why it was changed (bug fix, new feature, refactor, docs, etc.)
    - What the impact is (behavior change, breaking change, performance)
 
-3. **Draft the message** using this format:
+4. **Draft the message** using this format:
 
 ```
 <type>(<scope>): <imperative summary, max 72 chars>
@@ -34,7 +49,7 @@ Include impact details if relevant.>
 <Trailers>
 ```
 
-4. **Present the draft** to the user for review before committing.
+5. **Present the draft** to the user for review before committing.
 
 ## Format Rules
 
