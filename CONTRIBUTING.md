@@ -89,7 +89,10 @@ See the README for the full user-side update flow.
 - **Description**: front-load with keywords, max ~250 characters for display
 - **Body**: clear, actionable instructions under 500 lines
 - **Validate before pushing** — `just validate` checks that every `SKILL.md`
-  has the required frontmatter
+  has the required frontmatter. CI runs a stricter check via
+  [`sutras`](https://github.com/anistark/sutras) (`sutras validate --all --path skills/`)
+  on every PR to `main`; install locally with `pip install sutras` to preview
+  the same output
 
 ## Optional Frontmatter Fields
 
