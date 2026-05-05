@@ -80,6 +80,7 @@ Then invoke with the plain name: `/<skill-name>` (e.g. `/commit-msg`).
 |-------|----------|-------------|
 | [commit-msg](skills/commit-msg/) | development | Write well-structured git commit messages |
 | [pr-msg](skills/pr-msg/) | development | Write PR titles and descriptions from the current branch's commits and diff |
+| [report-issue](skills/report-issue/) | productivity | Proactively prompt to file a GitHub issue when a bug or limitation is spotted; offers draft/create/skip |
 | [sync-upstream](skills/sync-upstream/) | productivity | Sync current branch with upstream/origin, resolving conflicts interactively |
 
 ## Structure
