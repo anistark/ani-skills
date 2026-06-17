@@ -1,24 +1,30 @@
 ---
 name: report-issue
 description: >
-  Prompt the user to file a GitHub issue whenever a bug, limitation, or
-  improvement opportunity surfaces during a session. Presents three choices —
-  "show me a draft", "go ahead", or "skip" — and acts accordingly. Invoke
-  this skill proactively when you spot something worth reporting; do not wait
-  for the user to ask.
-allowed-tools: Bash AskUserQuestion Read Grep Glob
+  File a GitHub issue well, for both reactive bug reports and user-requested
+  features. Proactively prompt to report a bug, limitation, or improvement when
+  one surfaces (draft / create / skip). When the user asks to file an issue for
+  a feature, refactor, or research finding, author a well-structured issue or a
+  multi-phase epic with natively linked sub-issues. Grounds claims in code
+  permalinks and web sources, checks for duplicates, applies existing repo
+  labels, and follows house style (concise dash-free titles, "Tracked by #N"
+  cross-refs, no hard-wrapped prose, no em/en dashes).
+allowed-tools: Bash AskUserQuestion Read Grep Glob WebSearch WebFetch
 ---
 
 # Issue Reporter
 
-Whenever a bug, limitation, missing feature, or clearly broken behavior is
-encountered — whether discovered while reading code, running commands, or
-investigating a problem — offer to file a GitHub issue before moving on.
+This skill files GitHub issues well in two modes. Reactively: whenever a bug,
+limitation, missing feature, or clearly broken behavior is encountered (while
+reading code, running commands, or investigating a problem), offer to file an
+issue before moving on. On request: when the user asks to create an issue for a
+feature, refactor, research finding, or roadmap-sized effort, author a
+well-structured issue or a multi-phase epic with linked sub-issues.
 
-**Invoke this skill proactively.** If you notice something reportable during a
-session (e.g. an error message points to a library bug, a config option is
-undocumented, a CI step is broken for unrelated reasons), invoke this skill
-rather than just mentioning it in passing.
+**In reactive mode, invoke proactively.** If you notice something reportable
+during a session (e.g. an error message points to a library bug, a config
+option is undocumented, a CI step is broken for unrelated reasons), invoke this
+skill rather than just mentioning it in passing.
 
 ---
 
@@ -36,6 +42,10 @@ Invoke this skill when **any** of the following are true:
   "someone should report this".
 - You notice an inconsistency in docs, an undocumented breaking change, or
   behavior that contradicts the project's own documentation.
+- The user explicitly asks to create or file an issue for a feature,
+  enhancement, refactor, research finding, or roadmap-sized effort. This is the
+  on-request mode: go straight to grounding and drafting, no proactive prompt
+  needed.
 
 Do **not** invoke for:
 - Issues in the user's own code that they are actively fixing.
@@ -142,8 +152,79 @@ Examples:
 [Stack traces, links to related issues, workarounds]
 ```
 
-Omit sections that do not apply (e.g., no "Steps to Reproduce" for a docs
-issue). Keep the body factual and concise — maintainers read many issues.
+Omit sections that do not apply (e.g. no "Steps to Reproduce" for a docs
+issue). Keep the body factual and concise: maintainers read many issues.
+
+For an **enhancement or feature**, use this shape instead of the bug template:
+
+```markdown
+## Summary
+
+[What and why, in 2-4 sentences. Name the current state and the change.]
+
+## Current state
+
+- [How it works today, with permalinks to the relevant code.]
+
+## Proposed change
+
+- [What to build or alter.]
+
+## Acceptance criteria
+
+- [Observable outcomes that mean "done".]
+
+## References
+
+- [External sources, specs, prior art.]
+```
+
+For a **roadmap-sized effort, use an epic**: a tracking issue whose phases
+become sub-issues (see "Epics and sub-issues" below).
+
+```markdown
+## Summary
+
+[The overall goal and why it is a multi-step effort.]
+
+## Current state
+
+- [Grounded in code, with permalinks.]
+
+## Design decisions
+
+- [Key choices and rationale: defaults, compatibility, user-facing behavior.]
+
+## What needs implementing (high level)
+
+1. [Layer one]
+2. [Layer two]
+
+## Affected surfaces
+
+- `path/to/file`: what changes here.
+
+## Proposed phasing
+
+- [ ] Phase 0: ...
+- [ ] Phase 1: ...
+
+## References
+
+- [Sources.]
+```
+
+### Ground every claim
+
+Before drafting any of these, ground the facts:
+
+- Cite real code as `file_path:line`, and in the body link a GitHub permalink
+  pinned to the current commit SHA
+  (`https://github.com/<owner>/<repo>/blob/<sha>/<path>#L<n>`; get the SHA from
+  `git rev-parse --short HEAD`). Link, do not paste long snippets.
+- For anything external (spec status, release dates, version support), do web
+  research and add a "References" section with the sources. Do not assert
+  version facts from memory.
 
 ### 5. Prompt the user
 
@@ -208,6 +289,40 @@ without creating anything. Do not bring it up again unless the user asks.
 
 ---
 
+## Epics and sub-issues
+
+When an effort spans distinct phases or workstreams, make the main issue an
+epic and split each phase into its own sub-issue. Create the children, then
+link them natively so a progress tree renders on the parent.
+
+```bash
+# Parent (epic) and child node IDs
+PARENT=$(gh issue view <epic#> --repo <owner/repo> --json id -q .id)
+CHILD=$(gh issue view <child#> --repo <owner/repo> --json id -q .id)
+
+# Native sub-issue link (gh has no first-class flag, so use GraphQL)
+gh api graphql -H "GraphQL-Features: sub_issues" \
+  -f query='mutation($p:ID!,$c:ID!){addSubIssue(input:{issueId:$p,subIssueId:$c}){subIssue{number}}}' \
+  -f p="$PARENT" -f c="$CHILD"
+```
+
+If the native API is unavailable, fall back to a task list: rewrite the epic
+body's checklist to reference child numbers (`- [ ] #123 ...`), which GitHub
+renders with live status.
+
+Guidance:
+
+- Confirm with the user which phases to create now and the linking method
+  before creating a batch.
+- Only write detailed sub-issues for phases understood now. Later phases that
+  depend on earlier design should be brief stubs ("scope TBD, refined after
+  #<n>") so they do not go stale.
+- Each child opens with `Tracked by #<epic>` and ends with a `Depends on` line
+  naming its prerequisite issue by number.
+- Keep ordering in the epic checklist and the sub-issue tree, not in titles.
+
+---
+
 ## Format Rules
 
 - **Be minimal**: do not pad the body with generic text. Every sentence should
@@ -222,6 +337,17 @@ without creating anything. Do not bring it up again unless the user asks.
   line — only plain text.
 - **Link don't embed**: if there is relevant existing code, link to it (GitHub
   permalink) rather than inlining long snippets.
+- **Concise titles, no phase prefix**: sentence case, plain text. Do not prefix
+  sub-issue titles with "Phase X"; ordering lives in the epic checklist and the
+  sub-issue tree.
+- **Cross-reference children with `Tracked by #<n>`** (not "Parent epic" or
+  "Part of").
+- **Never hard-wrap the body**: write one line per paragraph and per list item
+  so the raw source reflows to the reader's viewport.
+- **No em-dashes or en-dashes**: use a colon, comma, parentheses, or a new
+  sentence for a separating dash; use "to" or a hyphen for a numeric range
+  (e.g. "bytes 4 to 7"). Hyphens in compound words (`auto-detect`,
+  `wasm32-wasip1`) are fine.
 
 ---
 
@@ -240,6 +366,12 @@ without creating anything. Do not bring it up again unless the user asks.
   in the same session.
 - **Auto-filing without asking**: never create an issue without explicit user
   confirmation (option 2 or follow-up "go ahead").
+- **Asserting external facts from memory**: research release dates, spec
+  status, and version support, and cite the sources.
+- **Detailed stubs for unknown phases**: do not over-specify sub-issues whose
+  scope depends on earlier work not yet done.
+- **House-style slips**: hard-wrapped issue bodies or em/en dashes both violate
+  the format rules above.
 
 ---
 
