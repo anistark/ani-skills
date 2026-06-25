@@ -1,173 +1,67 @@
 ---
 name: commit-msg
 description: >
-  Write a well-structured git commit message following open source best practices.
+  Write a clear, human-sounding git commit message for the staged changes,
+  following common open source conventions and matching the repo's own style.
 allowed-tools: Bash Read Grep Glob
 ---
 
 # Commit Message Writer
 
-Write a git commit message for the staged changes following open source best practices.
+Write a commit message for the staged changes. Keep it short, make it sound like a person wrote it, and reference the relevant code, issues, and docs.
 
 ## Steps
 
-1. **Gather context** — run these in parallel:
-   - `git diff --cached` to see staged changes
-   - `git diff --cached --stat` for a file-level summary
-   - `git log --oneline -10` to match the repo's existing style
-   - `git status` to check for anything unstaged that might be missing
+1. Gather context (run in parallel):
+   - `git diff --cached` and `git diff --cached --stat` for the staged changes
+   - `git log --oneline -10` to match the repo's style
+   - `git status` to catch anything that should have been staged
 
-2. **Assess commit size and scope** — decide if this should be one commit or several.
+2. If the diff is big and mixed, offer to split it. Flag it when two or more are true: more than ~10 files or ~300 lines, multiple change types (`feat` + `fix` + `docs`), or unrelated areas (`src/auth/` and `ci/`). When flagged, name the logical groups and ask whether to make separate commits (propose a `git reset` then `git add` plan per group) or one combined commit. Skip this for small, focused diffs.
 
-   Flag the commit as "big and mixed" if **two or more** of these are true:
-   - More than ~10 files changed, or more than ~300 lines added/removed
-   - Changes span **multiple distinct types** (e.g. `feat` + `fix` + `docs`, or `refactor` + `feat`)
-   - Changes touch **unrelated areas/modules** (e.g. `src/auth/` and `docs/` and `ci/`)
-   - Mixes user-facing behavior change with unrelated chores/formatting
-
-   If flagged, **stop and ask the user**:
-   - Summarize the distinct logical groups you see (e.g. "1) auth refactor in `src/auth/`, 2) unrelated README fixes, 3) CI config tweak").
-   - Ask: "This looks like it could be split into N commits. Do you want (a) separate commits per group, or (b) a single combined commit?"
-   - If the user chooses **separate commits**: propose a staging plan (`git reset` then `git add` per group), draft one message per group, and commit them in sequence.
-   - If the user chooses **single commit**: proceed with one message that covers all groups.
-   - Skip this prompt entirely for small or cohesive diffs — don't nag on trivial changes.
-
-3. **Analyze the changes** — understand:
-   - What was changed (files, functions, logic)
-   - Why it was changed (bug fix, new feature, refactor, docs, etc.)
-   - What the impact is (behavior change, breaking change, performance)
-
-4. **Draft the message** using this format:
+3. Draft the message:
 
 ```
 <type>(<scope>): <imperative summary, max 72 chars>
 
-<Body: explain what and why, not how. Wrap at 72 columns.
-Describe the problem being solved and why this approach was chosen.
-Include impact details if relevant.>
+<Why the change exists and what it does, not how. One line per paragraph,
+no hard wrapping. Reference the issue, code, and docs.>
 
-<Trailers>
+<trailers>
 ```
 
-5. **Present the draft** to the user for review before committing.
+4. Show the draft and let the user commit.
 
-## Format Rules
+## Rules
 
-### Subject Line
+**Subject:** imperative ("add", not "added"), max 72 chars, no trailing period, lowercase after the prefix. It should finish the sentence "If applied, this commit will ___".
 
-- **Max 72 characters** (50 is ideal, 72 is the hard limit)
-- **Imperative mood**: "add feature" not "added feature" or "adds feature"
-- **Completion test**: the subject should complete "If applied, this commit will ___"
-- **No period** at the end
-- **Lowercase** after the type/scope prefix (unless the first word is an identifier)
-- **Prefix format**: `type(scope):` — scope is optional
+**Types:** `feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`. The scope in parens is optional; drop it when the change is cross-cutting.
 
-### Types
+**Body:** optional for trivial changes. Explain why, not how (the diff shows how). Write one line per paragraph and let it reflow, don't hard-wrap. Compare old vs new behavior when it helps.
 
-| Type | When to use |
-|------|-------------|
-| `feat` | New feature or capability |
-| `fix` | Bug fix |
-| `docs` | Documentation only |
-| `refactor` | Code restructuring, no behavior change |
-| `perf` | Performance improvement |
-| `test` | Adding or fixing tests |
-| `build` | Build system or dependency changes |
-| `ci` | CI/CD configuration changes |
-| `chore` | Maintenance tasks (deps, tooling, configs) |
-| `revert` | Reverting a previous commit |
+**Tone:** casual and direct, like a teammate explaining the change. No filler, no restating the diff.
 
-### Scope
+**Reference everything:** wrap identifiers, paths, flags, and commands in backticks (`parse_config()`, `--dry-run`, `src/auth.py`). Link the issue with `Fixes #123` or `Refs #456` in the trailers. Point at docs or an external link when they explain the why. Note that `#123` and @mentions only render on GitHub, so keep them in trailers, not the prose.
 
-- Optional, in parentheses: `feat(auth): add OAuth2 support`
-- Use the component, module, or area affected
-- Omit if the change is cross-cutting or the scope is obvious
+**No em-dashes or en-dashes.** Use a comma, colon, parentheses, or a new sentence instead, and "to" or a hyphen for ranges. If a draft picks one up, replace it before showing. Hyphens in compound words (`auto-detect`) are fine.
 
-### Body
+**Never add `Co-authored-by` for AI.** The human who asked for the change is the author.
 
-- **Separated from subject by a blank line**
-- **Wrap at 72 columns** (for terminal and `git log` readability)
-- **Explain the "what" and "why"**, not the "how" — the diff shows the how
-- **Include context**: what problem does this solve? Why this approach?
-- Compare previous vs. new behavior when relevant
-- Can be omitted for truly trivial changes (typo fixes, single-line configs)
+## User-facing changes
 
-### Code and Identifiers
+If the change adds or alters something users see (a CLI command, API, config option, behavior), say what they can now do, show a quick example, and call out anything that breaks.
 
-- **Inline code**: wrap function names, file paths, flags, commands, and identifiers in single backticks — e.g. `` `parse_config()` ``, `` `--dry-run` ``, `` `src/auth.py` ``.
-- **Code blocks**: use fenced blocks with a language hint for multi-line snippets:
+## Match the repo
 
-  ````
-  ```py
-  result = parse_config(path, strict=True)
-  ```
-  ````
+If `git log` shows a different convention (no types, a sign-off, a different prefix), follow that instead. The repo wins.
 
-  Common hints: `py`, `js`, `ts`, `go`, `rs`, `sh`, `bash`, `json`, `yaml`, `toml`, `sql`, `diff`. Use `text` for plain output.
-- Backticks render in GitHub, GitLab, and most `git log` viewers; unquoted identifiers are easy to misread.
-
-### Trailers (appended after body, separated by blank line)
-
-Use only when applicable:
-
-- **Issue references**: `Fixes #123` or `Refs #456`
-- **Breaking changes**: `BREAKING CHANGE: description and migration path`
-- **Sign-off** (if project uses DCO): `Signed-off-by: Name <email@example.com>`
-
-**Never add `Co-authored-by` lines for AI agents.** The commit is authored by the human who requested it.
-
-## Anti-patterns to Avoid
-
-- **Vague subjects**: "fix stuff", "updates", "address review comments", "WIP"
-- **Past tense**: "fixed bug" instead of "fix bug"
-- **Describing files**: "change main.py" — say what the change *does*
-- **Giant commits**: if the diff touches unrelated things, suggest splitting
-- **GitHub syntax in message body**: @mentions and `#123` links belong in PR descriptions, not commit messages (they don't render outside GitHub)
-- **Restating the diff**: the body should add context the diff cannot convey
-- **Agent co-authorship**: never add `Co-authored-by` lines for AI agents or assistants
-
-## User-Facing Changes
-
-If the commit introduces or modifies anything visible to end users — a new CLI command, API endpoint, config option, UI element, or behavior change — the body **must** describe:
-
-1. **What the user can now do** (or what changed in their experience)
-2. **How to use it** — include a concrete example (command invocation, API call, config snippet)
-3. **Any breaking changes** to existing usage
-
-Example:
-
-```
-feat(cli): add `export` command for saving reports
-
-Users can now export analysis reports to JSON or CSV:
-
-    myapp export --format json --output report.json
-    myapp export --format csv --output report.csv
-
-By default, exports include all fields. Use --fields to select specific
-columns:
-
-    myapp export --format csv --fields name,status,score
-
-Refs #891
-```
-
-## Adapting to Repo Style
-
-If `git log` shows the repo already follows a specific convention (e.g., no types, different prefix style, sign-off required), **match the existing style** rather than forcing the format above. The repo's convention wins.
-
-## Example Output
+## Examples
 
 ```
 feat(api): add rate limiting to public endpoints
 
-Unauthenticated endpoints were vulnerable to abuse — a single client
-could exhaust the connection pool with rapid requests. Add a
-token-bucket rate limiter (100 req/min per IP) to all routes under
-/api/v1/public.
-
-The limiter uses Redis for distributed counting so it works correctly
-behind a load balancer. Existing authenticated endpoints are unchanged.
+Unauthenticated routes could exhaust the connection pool under bursty traffic, so add a token-bucket limiter (100 req/min per IP) to everything under `/api/v1/public`. Counting goes through Redis so it still holds up behind a load balancer. Authenticated endpoints are untouched.
 
 Fixes #342
 ```
@@ -175,15 +69,5 @@ Fixes #342
 ```
 fix: prevent panic on nil config during startup
 
-The server crashed with a nil pointer dereference when started without
-a config file. Now falls back to default configuration and logs a
-warning instead of panicking.
-```
-
-```
-refactor(auth): extract token validation into shared middleware
-
-Three separate handlers duplicated the same JWT validation logic with
-slight inconsistencies. Consolidate into a single middleware to ensure
-consistent behavior and simplify future changes to the auth flow.
+Starting without a config file crashed with a nil pointer deref. Now it falls back to defaults and logs a warning instead.
 ```
