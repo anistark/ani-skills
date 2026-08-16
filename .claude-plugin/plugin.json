@@ -1,7 +1,7 @@
 {
   "name": "ani-skills",
   "description": "A collection of reusable AI agent skills by Ani (@anistark)",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": {
     "name": "Kumar Anirudha",
     "email": "oss@anirudha.dev"
@@ -16,6 +16,7 @@
     "commit-message",
     "development",
     "productivity",
-    "github-issues"
+    "github-issues",
+    "social-media"
   ]
 }
