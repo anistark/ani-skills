@@ -83,6 +83,7 @@ Then invoke with the plain name: `/<skill-name>` (e.g. `/commit-msg`).
 | [report-issue](skills/report-issue/) | productivity | File a GitHub issue well: proactively prompt on bugs/limitations (draft/create/skip), or on request author a structured issue or multi-phase epic with linked sub-issues |
 | [social-posts](skills/social-posts/) | productivity | Draft platform-native social posts (X thread, LinkedIn, Fediverse, Bluesky, Threads) for a release or announcement, written to a markdown file |
 | [sync-upstream](skills/sync-upstream/) | productivity | Sync current branch with upstream/origin, resolving conflicts interactively |
+| [wassup](skills/wassup/) | productivity | Check where a project is at: flag docs/plans/issues out of sync with the code, or suggest three next tasks (quick win, most profitable, longest pending), or research similar projects for a new feature |
 
 ## Structure
 
