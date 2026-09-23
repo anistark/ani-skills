@@ -1,0 +1,10 @@
+# BuildKit reads <Dockerfile-name>.dockerignore next to the Dockerfile, so a monorepo
+# needs no root .dockerignore. Allow only what the image copies.
+*
+!<backend>
+!<data-folder>
+<backend>/.venv
+<backend>/.env
+<backend>/tests
+**/__pycache__
+**/.pytest_cache

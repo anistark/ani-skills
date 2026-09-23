@@ -1,0 +1,8 @@
+# Lives at /opt/<app>/docker-compose.yml. APP_IMAGE comes from the .env file that
+# deploy.sh writes next to this file; runtime settings come from <app>.env.
+services:
+  backend:
+    image: ${APP_IMAGE}
+    network_mode: host
+    env_file: <app>.env
+    restart: unless-stopped

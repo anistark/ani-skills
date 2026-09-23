@@ -79,6 +79,9 @@ Then invoke with the plain name: `/<skill-name>` (e.g. `/commit-msg`).
 | Skill | Category | Description |
 |-------|----------|-------------|
 | [commit-msg](skills/commit-msg/) | development | Write well-structured git commit messages |
+| [ec2-docker-ops](skills/ec2-docker-ops/) | devops | Day-two runbook for a Dockerised backend on EC2: diagnose outages layer by layer, read logs, roll back, fix SSM, renew TLS, free disk |
+| [fastapi-ec2-deploy](skills/fastapi-ec2-deploy/) | devops | Deploy a FastAPI backend as a Docker image on one EC2 box via GitHub Actions, ECR, OIDC and SSM, with host Postgres, nginx and TLS |
+| [postgres-s3-backup](skills/postgres-s3-backup/) | devops | Nightly Postgres dumps to a write-only S3 bucket via cron, plus a tested restore procedure and pre-deploy dumps |
 | [pr-msg](skills/pr-msg/) | development | Write PR titles and descriptions from the current branch's commits and diff |
 | [report-issue](skills/report-issue/) | productivity | File a GitHub issue well: proactively prompt on bugs/limitations (draft/create/skip), or on request author a structured issue or multi-phase epic with linked sub-issues |
 | [social-posts](skills/social-posts/) | productivity | Draft platform-native social posts (X thread, LinkedIn, Fediverse, Bluesky, Threads) for a release or announcement, written to a markdown file |
