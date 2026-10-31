@@ -82,6 +82,7 @@ Then invoke with the plain name: `/<skill-name>` (e.g. `/commit-msg`).
 | [doodle](skills/doodle/) | documentation | Draw a paper, notes or argument as one hand-drawn sketchnote canvas, rendered to WebP, where the layout carries the reasoning |
 | [ec2-docker-ops](skills/ec2-docker-ops/) | devops | Day-two runbook for a Dockerised backend on EC2: diagnose outages layer by layer, read logs, roll back, fix SSM, renew TLS, free disk |
 | [fastapi-ec2-deploy](skills/fastapi-ec2-deploy/) | devops | Deploy a FastAPI backend as a Docker image on one EC2 box via GitHub Actions, ECR, OIDC and SSM, with host Postgres, nginx and TLS |
+| [one-pager](skills/one-pager/) | documentation | Write a source as a short layered explainer page, plain then precise, with diagrams and marked disagreements. Requires the imax-view skill |
 | [postgres-s3-backup](skills/postgres-s3-backup/) | devops | Nightly Postgres dumps to a write-only S3 bucket via cron, plus a tested restore procedure and pre-deploy dumps |
 | [pr-msg](skills/pr-msg/) | development | Write PR titles and descriptions from the current branch's commits and diff |
 | [report-issue](skills/report-issue/) | productivity | File a GitHub issue well: proactively prompt on bugs/limitations (draft/create/skip), or on request author a structured issue or multi-phase epic with linked sub-issues |
