@@ -1,0 +1,54 @@
+/* doodle tokens. Paste into the page's <style>.
+   Single theme by design: a sketchnote is ink on paper. Only the surround
+   around the sheet follows the viewer's theme, so the poster holds on
+   either ground without the artwork itself flipping. */
+
+:root {
+  --surround:     #DEDBD0;
+  --surround-ink: #57544C;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --surround: #15151C; --surround-ink: #83807A; }
+}
+:root[data-theme="dark"] { --surround: #15151C; --surround-ink: #83807A; }
+
+/* Paper palette. These are literal hex inside the SVG, never var(), because
+   the sketch engine copies stroke attributes verbatim onto generated paths. */
+/*  paper   #FCFBF4   the sheet
+    ink     #22235C   navy, all linework and most text
+    shout   #EE1D66   magenta, one idea per canvas plus reject/danger arrows
+    second  #7C7FE8   periwinkle, subheads, secondary arrows, flourishes
+    mark    #CBF25C   lime, highlighter fills and the one box that matters
+    soft    #F8CADB   blush, tertiary fills
+    night   #16173C   the dark corner block
+    grey    #57544C   surround text and inline provenance notes only  */
+
+body {
+  margin: 0;
+  background: var(--surround);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-family: "Shantell Sans", "Comic Sans MS", "Segoe Print", sans-serif;
+}
+.sheet {
+  width: 100%;
+  max-width: 1400px;
+  background: #FCFBF4;
+  border-radius: 3px;
+  box-shadow: 0 18px 44px rgba(0,0,0,.28);
+  overflow: hidden;
+}
+svg { display: block; width: 100%; height: auto; }
+.meta {
+  max-width: 1400px; width: 100%;
+  font-size: 13px; color: var(--surround-ink);
+  display: flex; flex-wrap: wrap; gap: 6px 22px;
+}
+
+/* Three faces, three jobs. Never add a fourth. */
+.mk { font-family: "Permanent Marker", "Comic Sans MS", cursive; }              /* shouts */
+.cv { font-family: "Caveat", "Bradley Hand", cursive; font-weight: 700; }       /* annotates */
+.sh { font-family: "Shantell Sans", "Comic Sans MS", "Segoe Print", sans-serif; } /* is read */

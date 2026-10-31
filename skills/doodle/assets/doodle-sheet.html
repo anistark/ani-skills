@@ -1,0 +1,507 @@
+<title>Doodle Contact Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@500;700&family=Shantell+Sans:wght@400;500;700&display=swap">
+<style>
+:root{ --surround:#DEDBD0; --surround-ink:#57544C; }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --surround:#15151C; --surround-ink:#83807A; } }
+:root[data-theme="dark"]{ --surround:#15151C; --surround-ink:#83807A; }
+*{box-sizing:border-box;}
+body{margin:0;background:var(--surround);padding:28px;display:flex;flex-direction:column;align-items:center;gap:16px;font-family:"Shantell Sans","Comic Sans MS","Segoe Print",sans-serif;}
+.sheet{width:100%;max-width:1300px;background:#FCFBF4;border-radius:3px;box-shadow:0 18px 44px rgba(0,0,0,.28);overflow:hidden;}
+svg{display:block;width:100%;height:auto;}
+.meta{max-width:1300px;width:100%;font-size:13px;color:var(--surround-ink);display:flex;flex-wrap:wrap;gap:6px 22px;}
+.mk{font-family:"Permanent Marker","Comic Sans MS",cursive;}
+.cv{font-family:"Caveat","Bradley Hand",cursive;font-weight:700;}
+.sh{font-family:"Shantell Sans","Comic Sans MS","Segoe Print",sans-serif;}
+</style>
+
+<div class="sheet">
+<svg id="sheet" viewBox="0 0 1240 1900" role="img" aria-label="Contact sheet of twenty six hand-drawn marks and twelve larger illustrations for sketchnotes. Marks: bin, eye, crossed eye, warning triangle, lightbulb, brain, figure, tug of war, balance, gate, book, papers, speech bubble, thought cloud, starburst, magnifier, clock, scissors, funnel, key, lock, sprout, tick, cross, potted plant, flag and mountain. Illustrations: a researcher at a desk, a figure dwarfed by a pile of paper, a shrugging figure, two figures handing over a document, a robot, a robot reporting success beside the mess it made, a winners podium, a black box, a document under a magnifier with a fault inside the lens, a figure facing a brick wall, a signpost pointing two ways, and a filing cabinet with a sheet dropping into an open drawer.">
+  <defs>
+    <marker id="ahNavy" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.5 L10,5 L0,9.5 L2.4,5 Z" fill="#22235C"/></marker>
+    <marker id="ahPink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.5 L10,5 L0,9.5 L2.4,5 Z" fill="#EE1D66"/></marker>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="1240" height="1900" fill="#FCFBF4"/>
+  <path data-sketch="2" data-amp="3" d="M20,20 L1220,20 L1220,1880 L20,1880 Z" fill="none" stroke="#22235C" stroke-width="2.5"/>
+
+  <text class="mk" x="44" y="76" font-size="46" fill="#EE1D66" stroke="#FCFBF4" stroke-width="6" paint-order="stroke fill">THE DOODLE BOX</text>
+  <text class="cv" x="44" y="112" font-size="27" fill="#7C7FE8">marks are 100&#215;100 and a canvas uses several. illustrations are 240&#215;160 and a canvas uses one.</text>
+  <path data-sketch="2" data-amp="2.5" d="M44,128 L1196,128" fill="none" stroke="#7C7FE8" stroke-width="3" stroke-linecap="round"/>
+  <text class="mk" x="1196" y="118" font-size="26" fill="#7C7FE8" text-anchor="end" stroke="none">MARKS</text>
+
+  <g stroke="#22235C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- r0c0 bin -->
+  <g transform="translate(64,152)">
+    <path data-sketch="2" d="M20,24 L80,24"/><path data-sketch="2" d="M42,14 L58,14"/>
+    <path data-sketch="2" d="M28,32 L72,32 L65,92 L35,92 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M44,44 L42,82"/><path data-sketch="1" d="M56,44 L58,82"/>
+  </g>
+  <!-- r0c1 eye -->
+  <g transform="translate(259,152)">
+    <path data-sketch="2" d="M8,50 Q50,16 92,50 Q50,84 8,50 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M36,50 A14,14 0 1,0 64,50 A14,14 0 1,0 36,50 Z" fill="#22235C"/>
+  </g>
+  <!-- r0c2 eye crossed -->
+  <g transform="translate(454,152)">
+    <path data-sketch="2" d="M8,50 Q50,16 92,50 Q50,84 8,50 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M36,50 A14,14 0 1,0 64,50 A14,14 0 1,0 36,50 Z" fill="#22235C"/>
+    <path data-sketch="1" d="M16,20 L84,80" stroke="#EE1D66" stroke-width="4"/>
+    <path data-sketch="1" d="M16,80 L84,20" stroke="#EE1D66" stroke-width="4"/>
+  </g>
+  <!-- r0c3 warning -->
+  <g transform="translate(649,152)">
+    <path data-sketch="2" d="M50,10 L90,84 L10,84 Z" fill="#CBF25C"/>
+    <text class="mk" x="50" y="76" font-size="40" fill="#22235C" text-anchor="middle" stroke="none">!</text>
+  </g>
+  <!-- r0c4 lightbulb -->
+  <g transform="translate(844,152)">
+    <path data-sketch="2" d="M50,8 C74,8 88,26 88,44 C88,60 74,66 70,78 L30,78 C26,66 12,60 12,44 C12,26 26,8 50,8 Z" fill="#CBF25C"/>
+    <path data-sketch="1" d="M34,84 L66,84"/><path data-sketch="1" d="M38,92 L62,92"/>
+    <path data-sketch="1" d="M40,72 L40,44 L50,54 L60,44 L60,72"/>
+  </g>
+  <!-- r0c5 brain -->
+  <g transform="translate(1039,152)">
+    <path data-sketch="2" d="M50,12 C28,6 10,22 16,42 C6,58 16,80 34,80 C42,92 58,92 66,80 C84,80 94,58 84,42 C90,22 72,6 50,12 Z" fill="#F8CADB"/>
+    <path data-sketch="1" d="M50,14 L50,84"/>
+    <path data-sketch="1" d="M32,32 C42,38 40,50 30,54"/><path data-sketch="1" d="M70,34 C60,40 62,52 72,56"/>
+  </g>
+
+  <!-- r1c0 figure -->
+  <g transform="translate(64,334)">
+    <path data-sketch="2" d="M50,10 A13,13 0 1,0 50,36 A13,13 0 1,0 50,10 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M50,36 L50,66"/><path data-sketch="1" d="M50,44 L30,58"/><path data-sketch="1" d="M50,44 L70,58"/>
+    <path data-sketch="1" d="M50,66 L34,92"/><path data-sketch="1" d="M50,66 L66,92"/>
+  </g>
+  <!-- r1c1+c2 tug of war, 200 wide -->
+  <g transform="translate(261,334)">
+    <path data-sketch="2" d="M28,16 A11,11 0 1,0 28,38 A11,11 0 1,0 28,16 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M28,38 L34,62"/><path data-sketch="1" d="M34,62 L20,88"/><path data-sketch="1" d="M34,62 L48,86"/>
+    <path data-sketch="1" d="M30,46 L56,52"/>
+    <path data-sketch="2" d="M172,16 A11,11 0 1,0 172,38 A11,11 0 1,0 172,16 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M172,38 L166,62"/><path data-sketch="1" d="M166,62 L180,88"/><path data-sketch="1" d="M166,62 L152,86"/>
+    <path data-sketch="1" d="M170,46 L144,52"/>
+    <path data-sketch="2" d="M56,52 L144,52" stroke-width="3"/>
+    <path data-sketch="1" d="M100,44 L100,60" stroke="#EE1D66" stroke-width="3"/>
+  </g>
+  <!-- r1c3 balance -->
+  <g transform="translate(649,334)">
+    <path data-sketch="2" d="M50,26 L50,74"/>
+    <path data-sketch="2" d="M32,88 L68,88 L50,74 Z" fill="#22235C"/>
+    <path data-sketch="2" d="M10,34 L90,20" stroke-width="3"/>
+    <path data-sketch="1" d="M10,34 L10,52"/><path data-sketch="2" d="M0,52 L20,52 L16,64 L4,64 Z" fill="#F8CADB"/>
+    <path data-sketch="1" d="M90,20 L90,38"/><path data-sketch="2" d="M80,38 L100,38 L96,50 L84,50 Z" fill="#CBF25C"/>
+  </g>
+  <!-- r1c4 gate -->
+  <g transform="translate(844,334)">
+    <path data-sketch="2" d="M50,8 L50,92" stroke-width="4"/>
+    <path data-sketch="1" d="M6,32 L86,32" marker-end="url(#ahNavy)"/>
+    <path data-sketch="1" d="M6,70 L38,70" stroke="#EE1D66" marker-end="url(#ahPink)"/>
+    <path data-sketch="1" d="M40,60 L58,80" stroke="#EE1D66" stroke-width="3.5"/>
+    <path data-sketch="1" d="M40,80 L58,60" stroke="#EE1D66" stroke-width="3.5"/>
+  </g>
+  <!-- r1c5 book -->
+  <g transform="translate(1039,334)">
+    <path data-sketch="2" d="M8,26 C28,14 44,20 50,30 C56,20 72,14 92,26 L92,80 C72,68 56,74 50,84 C44,74 28,68 8,80 Z" fill="#CBF25C"/>
+    <path data-sketch="1" d="M50,30 L50,84"/>
+    <path data-sketch="1" d="M18,38 L40,34"/><path data-sketch="1" d="M18,50 L40,46"/>
+    <path data-sketch="1" d="M60,34 L82,38"/><path data-sketch="1" d="M60,46 L82,50"/>
+  </g>
+
+  <!-- r2c0 papers -->
+  <g transform="translate(64,516)">
+    <path data-sketch="2" d="M14,12 L70,12 L70,76 L14,76 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M26,24 L82,24 L82,88 L26,88 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M36,42 L72,42"/><path data-sketch="1" d="M36,54 L72,54"/><path data-sketch="1" d="M36,66 L60,66"/>
+  </g>
+  <!-- r2c1 speech -->
+  <g transform="translate(259,516)">
+    <path data-sketch="2" d="M10,14 L90,14 L90,64 L44,64 L26,88 L30,64 L10,64 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M24,32 L76,32"/><path data-sketch="1" d="M24,46 L62,46"/>
+  </g>
+  <!-- r2c2 thought cloud -->
+  <g transform="translate(454,516)">
+    <path data-sketch="2" d="M28,32 A16,16 0 0,1 58,24 A17,17 0 0,1 84,42 A14,14 0 0,1 74,64 L34,64 A16,16 0 0,1 28,32 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M28,76 A6,6 0 1,0 40,76 A6,6 0 1,0 28,76 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M16,90 A4,4 0 1,0 24,90 A4,4 0 1,0 16,90 Z" fill="#FCFBF4"/>
+  </g>
+  <!-- r2c3 starburst -->
+  <g transform="translate(649,516)">
+    <path data-sketch="2" d="M50,4 L59,36 L88,20 L70,48 L96,64 L64,64 L68,96 L48,70 L26,92 L32,62 L4,58 L32,42 L14,16 L44,30 Z" fill="#CBF25C"/>
+  </g>
+  <!-- r2c4 magnifier -->
+  <g transform="translate(844,516)">
+    <path data-sketch="2" d="M20,42 A24,24 0 1,0 68,42 A24,24 0 1,0 20,42 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M62,60 L90,90" stroke-width="4.5"/>
+  </g>
+  <!-- r2c5 clock -->
+  <g transform="translate(1039,516)">
+    <path data-sketch="2" d="M12,50 A38,38 0 1,0 88,50 A38,38 0 1,0 12,50 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M50,50 L50,26" stroke-width="3"/><path data-sketch="1" d="M50,50 L70,60" stroke-width="3"/>
+    <path data-sketch="1" d="M50,16 L50,23"/><path data-sketch="1" d="M84,50 L77,50"/>
+    <path data-sketch="1" d="M50,84 L50,77"/><path data-sketch="1" d="M16,50 L23,50"/>
+  </g>
+
+  <!-- r3c0 scissors -->
+  <g transform="translate(64,698)">
+    <path data-sketch="2" d="M22,86 L70,24"/><path data-sketch="2" d="M78,86 L30,24"/>
+    <path data-sketch="2" d="M12,88 A9,9 0 1,0 30,88 A9,9 0 1,0 12,88 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M70,88 A9,9 0 1,0 88,88 A9,9 0 1,0 70,88 Z" fill="#FCFBF4"/>
+  </g>
+  <!-- r3c1 funnel -->
+  <g transform="translate(259,698)">
+    <path data-sketch="2" d="M10,16 L90,16 L58,56 L58,92 L42,92 L42,56 Z" fill="#F8CADB"/>
+  </g>
+  <!-- r3c2 key -->
+  <g transform="translate(454,698)">
+    <path data-sketch="2" d="M14,44 A16,16 0 1,0 46,44 A16,16 0 1,0 14,44 Z" fill="#FCFBF4" stroke-width="3"/>
+    <path data-sketch="2" d="M46,44 L92,44" stroke-width="3.5"/>
+    <path data-sketch="1" d="M74,44 L74,62"/><path data-sketch="1" d="M86,44 L86,58"/>
+  </g>
+  <!-- r3c3 lock -->
+  <g transform="translate(649,698)">
+    <path data-sketch="2" d="M22,46 L78,46 L78,90 L22,90 Z" fill="#CBF25C"/>
+    <path data-sketch="2" d="M34,46 L34,30 A16,16 0 0,1 66,30 L66,46"/>
+    <path data-sketch="1" d="M50,60 L50,78" stroke-width="3.5"/>
+  </g>
+  <!-- r3c4 sprout -->
+  <g transform="translate(844,698)">
+    <path data-sketch="2" d="M50,92 L50,40" stroke-width="3"/>
+    <path data-sketch="2" d="M50,58 C28,58 20,44 22,28 C40,28 52,42 50,58 Z" fill="#CBF25C"/>
+    <path data-sketch="2" d="M50,48 C72,48 80,34 78,18 C60,18 48,32 50,48 Z" fill="#CBF25C"/>
+  </g>
+  <!-- r3c5 tick and cross -->
+  <g transform="translate(1039,698)">
+    <path data-sketch="2" d="M4,50 L26,74 L60,20" stroke-width="5"/>
+    <path data-sketch="2" d="M64,28 L96,72" stroke="#EE1D66" stroke-width="5"/>
+    <path data-sketch="2" d="M96,28 L64,72" stroke="#EE1D66" stroke-width="5"/>
+  </g>
+
+  <!-- r4c0 potted plant -->
+  <g transform="translate(64,880)">
+    <path data-sketch="2" d="M30,66 L70,66 L64,94 L36,94 Z" fill="#F8CADB"/>
+    <path data-sketch="2" d="M50,66 L50,32" stroke-width="3"/>
+    <path data-sketch="2" d="M50,50 C30,48 22,34 26,18 C44,20 52,36 50,50 Z" fill="#3FD5A8"/>
+    <path data-sketch="2" d="M50,42 C70,40 78,26 74,10 C56,12 48,28 50,42 Z" fill="#3FD5A8"/>
+  </g>
+  <!-- r4c1 flag -->
+  <g transform="translate(259,880)">
+    <path data-sketch="2" d="M26,94 L26,8" stroke-width="3"/>
+    <path data-sketch="2" d="M26,12 L84,26 L26,42 Z" fill="#EE1D66"/>
+  </g>
+  <!-- r4c2 mountain -->
+  <g transform="translate(454,880)">
+    <path data-sketch="2" d="M6,86 L36,26 L54,56 L68,36 L94,86 Z" fill="#7C7FE8"/>
+    <path data-sketch="1" d="M24,50 L36,26 L48,50 L36,44 Z" fill="#FCFBF4"/>
+  </g>
+  <!-- r4c3 arrow kinds -->
+  <g transform="translate(649,880)">
+    <path data-sketch="1" d="M4,18 L92,18" marker-end="url(#ahNavy)"/>
+    <path data-sketch="1" d="M4,42 C34,26 62,58 92,42" marker-end="url(#ahNavy)"/>
+    <path data-sketch="1" d="M4,66 L92,66" stroke-dasharray="7 6" stroke="#EE1D66" marker-end="url(#ahPink)"/>
+    <path data-sketch="1" d="M4,90 C46,74 60,110 10,102" stroke="#EE1D66" marker-end="url(#ahPink)"/>
+  </g>
+  <!-- r4c4 highlighter -->
+  <g transform="translate(844,880)">
+    <path data-sketch="1" data-amp="4" d="M4,34 L96,34" stroke="#CBF25C" stroke-width="26" stroke-linecap="round" style="mix-blend-mode:multiply"/>
+    <text class="sh" x="8" y="42" font-size="19" font-weight="700" fill="#22235C" stroke="none">the point</text>
+    <path data-sketch="1" data-amp="3" d="M4,76 L96,76" stroke="#EE1D66" stroke-width="12" stroke-linecap="round" opacity=".5"/>
+    <text class="sh" x="8" y="80" font-size="16" fill="#22235C" stroke="none">underline</text>
+  </g>
+  <!-- r4c5 bars -->
+  <g transform="translate(1039,880)">
+    <path data-sketch="2" d="M8,62 L30,62 L30,92 L8,92 Z" fill="#7C7FE8"/>
+    <path data-sketch="2" d="M40,42 L62,42 L62,92 L40,92 Z" fill="#7C7FE8"/>
+    <path data-sketch="2" d="M72,16 L94,16 L94,92 L72,92 Z" fill="#CBF25C"/>
+    <path data-sketch="2" d="M2,94 L98,94"/>
+  </g>
+
+  </g>
+
+  <text class="sh" x="112" y="308" font-size="15" fill="#22235C" text-anchor="middle">bin</text>
+  <text class="sh" x="307" y="308" font-size="15" fill="#22235C" text-anchor="middle">eye</text>
+  <text class="sh" x="502" y="308" font-size="15" fill="#22235C" text-anchor="middle">eye, crossed</text>
+  <text class="sh" x="697" y="308" font-size="15" fill="#22235C" text-anchor="middle">warning</text>
+  <text class="sh" x="892" y="308" font-size="15" fill="#22235C" text-anchor="middle">lightbulb</text>
+  <text class="sh" x="1087" y="308" font-size="15" fill="#22235C" text-anchor="middle">brain</text>
+
+  <text class="sh" x="112" y="490" font-size="15" fill="#22235C" text-anchor="middle">figure</text>
+  <text class="sh" x="405" y="490" font-size="15" fill="#22235C" text-anchor="middle">tug of war (200 wide)</text>
+  <text class="sh" x="697" y="490" font-size="15" fill="#22235C" text-anchor="middle">balance</text>
+  <text class="sh" x="892" y="490" font-size="15" fill="#22235C" text-anchor="middle">gate</text>
+  <text class="sh" x="1087" y="490" font-size="15" fill="#22235C" text-anchor="middle">book</text>
+
+  <text class="sh" x="112" y="672" font-size="15" fill="#22235C" text-anchor="middle">papers</text>
+  <text class="sh" x="307" y="672" font-size="15" fill="#22235C" text-anchor="middle">speech</text>
+  <text class="sh" x="502" y="672" font-size="15" fill="#22235C" text-anchor="middle">thought</text>
+  <text class="sh" x="697" y="672" font-size="15" fill="#22235C" text-anchor="middle">starburst</text>
+  <text class="sh" x="892" y="672" font-size="15" fill="#22235C" text-anchor="middle">magnifier</text>
+  <text class="sh" x="1087" y="672" font-size="15" fill="#22235C" text-anchor="middle">clock</text>
+
+  <text class="sh" x="112" y="854" font-size="15" fill="#22235C" text-anchor="middle">scissors</text>
+  <text class="sh" x="307" y="854" font-size="15" fill="#22235C" text-anchor="middle">funnel</text>
+  <text class="sh" x="502" y="854" font-size="15" fill="#22235C" text-anchor="middle">key</text>
+  <text class="sh" x="697" y="854" font-size="15" fill="#22235C" text-anchor="middle">lock</text>
+  <text class="sh" x="892" y="854" font-size="15" fill="#22235C" text-anchor="middle">sprout</text>
+  <text class="sh" x="1087" y="854" font-size="15" fill="#22235C" text-anchor="middle">tick and cross</text>
+
+  <text class="sh" x="112" y="1036" font-size="15" fill="#22235C" text-anchor="middle">potted plant</text>
+  <text class="sh" x="307" y="1036" font-size="15" fill="#22235C" text-anchor="middle">flag</text>
+  <text class="sh" x="502" y="1036" font-size="15" fill="#22235C" text-anchor="middle">mountain</text>
+  <text class="sh" x="697" y="1036" font-size="15" fill="#22235C" text-anchor="middle">the four arrows</text>
+  <text class="sh" x="892" y="1036" font-size="15" fill="#22235C" text-anchor="middle">highlighter, underline</text>
+  <text class="sh" x="1087" y="1036" font-size="15" fill="#22235C" text-anchor="middle">bars</text>
+
+
+  <!-- ================= ILLUSTRATIONS: 240x160, scenes rather than nouns ================= -->
+  <path data-sketch="2" data-amp="2.5" d="M44,1096 L1196,1096" fill="none" stroke="#7C7FE8" stroke-width="3" stroke-linecap="round"/>
+  <text class="mk" x="44" y="1146" font-size="38" fill="#EE1D66" stroke="none">ILLUSTRATIONS</text>
+  <text class="cv" x="44" y="1180" font-size="26" fill="#7C7FE8" stroke="none">240&#215;160 boxes. a scene, not a noun. one per canvas, drawn big, carrying the beat.</text>
+
+  <g stroke="#22235C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- i r0c0 desk -->
+  <g transform="translate(60,1210)">
+    <path data-sketch="2" d="M92,40 A16,16 0 1,0 92,72 A16,16 0 1,0 92,40 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M92,72 L92,116"/>
+    <path data-sketch="1" d="M92,84 L126,106"/><path data-sketch="1" d="M92,84 L58,102"/>
+    <path data-sketch="2" d="M18,116 L222,116" stroke-width="3.5"/>
+    <path data-sketch="1" d="M34,116 L34,152"/><path data-sketch="1" d="M206,116 L206,152"/>
+    <path data-sketch="2" d="M132,98 L196,98 L196,116 L132,116 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M142,106 L186,106"/>
+    <path data-sketch="1" d="M204,116 L204,66"/>
+    <path data-sketch="1" d="M204,66 C204,48 186,42 176,52"/>
+    <path data-sketch="2" d="M160,48 L192,48 L184,66 L168,66 Z" fill="#CBF25C"/>
+  </g>
+  <!-- i r0c1 the pile -->
+  <g transform="translate(356,1210)">
+    <path data-sketch="2" d="M58,150 L148,150 L148,134 L58,134 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M54,134 L144,134 L147,118 L57,118 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M61,118 L151,118 L148,102 L58,102 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M56,102 L146,102 L149,86 L59,86 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M63,86 L153,86 L150,70 L60,70 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M58,70 L148,70 L146,54 L56,54 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M62,54 L152,54 L150,38 L60,38 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M196,88 A11,11 0 1,0 196,110 A11,11 0 1,0 196,88 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M196,110 L196,132"/>
+    <path data-sketch="1" d="M196,116 L180,98"/><path data-sketch="1" d="M196,116 L212,98"/>
+    <path data-sketch="1" d="M196,132 L186,152"/><path data-sketch="1" d="M196,132 L206,152"/>
+  </g>
+  <!-- i r0c2 shrug -->
+  <g transform="translate(652,1210)">
+    <path data-sketch="2" d="M120,30 A19,19 0 1,0 120,68 A19,19 0 1,0 120,30 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M112,44 L112,48" stroke-width="4"/><path data-sketch="1" d="M128,44 L128,48" stroke-width="4"/>
+    <path data-sketch="1" d="M110,58 L130,58"/>
+    <path data-sketch="1" d="M120,68 L120,112"/>
+    <path data-sketch="1" d="M120,80 L100,98 L84,80"/>
+    <path data-sketch="1" d="M120,80 L140,98 L156,80"/>
+    <path data-sketch="1" d="M84,80 L76,74"/><path data-sketch="1" d="M84,80 L78,86"/>
+    <path data-sketch="1" d="M156,80 L164,74"/><path data-sketch="1" d="M156,80 L162,86"/>
+    <path data-sketch="1" d="M120,112 L106,148"/><path data-sketch="1" d="M120,112 L134,148"/>
+    <text class="mk" x="176" y="52" font-size="34" fill="#EE1D66" stroke="none">?</text>
+  </g>
+  <!-- i r0c3 handoff -->
+  <g transform="translate(948,1210)">
+    <path data-sketch="2" d="M58,36 A14,14 0 1,0 58,64 A14,14 0 1,0 58,36 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M58,64 L58,104"/>
+    <path data-sketch="1" d="M58,104 L46,140"/><path data-sketch="1" d="M58,104 L70,140"/>
+    <path data-sketch="1" d="M58,76 L96,86"/>
+    <path data-sketch="2" d="M182,36 A14,14 0 1,0 182,64 A14,14 0 1,0 182,36 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M182,64 L182,104"/>
+    <path data-sketch="1" d="M182,104 L170,140"/><path data-sketch="1" d="M182,104 L194,140"/>
+    <path data-sketch="1" d="M182,76 L144,86"/>
+    <path data-sketch="2" d="M102,68 L138,68 L138,100 L102,100 Z" fill="#CBF25C"/>
+    <path data-sketch="1" d="M110,80 L130,80"/><path data-sketch="1" d="M110,90 L124,90"/>
+    <path data-sketch="1" d="M96,126 L144,126" marker-end="url(#ahNavy)"/>
+  </g>
+
+  <!-- i r1c0 robot -->
+  <g transform="translate(60,1440)">
+    <path data-sketch="1" d="M120,32 L120,18"/>
+    <path data-sketch="2" d="M112,10 A8,8 0 1,0 128,10 A8,8 0 1,0 112,10 Z" fill="#EE1D66"/>
+    <path data-sketch="2" d="M86,32 L154,32 L154,72 L86,72 Z" fill="#CBF25C"/>
+    <path data-sketch="2" d="M100,46 A6,6 0 1,0 112,46 A6,6 0 1,0 100,46 Z" fill="#22235C"/>
+    <path data-sketch="2" d="M128,46 A6,6 0 1,0 140,46 A6,6 0 1,0 128,46 Z" fill="#22235C"/>
+    <path data-sketch="1" d="M104,60 L136,60"/>
+    <path data-sketch="2" d="M76,76 L164,76 L164,138 L76,138 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M96,96 L144,96"/><path data-sketch="1" d="M96,110 L128,110"/>
+    <path data-sketch="1" d="M76,92 L54,114"/><path data-sketch="1" d="M164,92 L186,114"/>
+    <path data-sketch="1" d="M96,138 L96,154"/><path data-sketch="1" d="M144,138 L144,154"/>
+  </g>
+  <!-- i r1c1 confident and wrong -->
+  <g transform="translate(356,1440)">
+    <path data-sketch="1" d="M68,42 L68,30"/>
+    <path data-sketch="2" d="M62,24 A6,6 0 1,0 74,24 A6,6 0 1,0 62,24 Z" fill="#EE1D66"/>
+    <path data-sketch="2" d="M40,42 L96,42 L96,78 L40,78 Z" fill="#CBF25C"/>
+    <path data-sketch="2" d="M50,60 L62,72 L86,48" stroke-width="4.5"/>
+    <path data-sketch="2" d="M32,82 L104,82 L104,134 L32,134 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M32,96 L14,116"/><path data-sketch="1" d="M104,96 L122,112"/>
+    <path data-sketch="1" d="M48,134 L48,150"/><path data-sketch="1" d="M88,134 L88,150"/>
+    <path data-sketch="1" d="M144,150 L214,150"/>
+    <path data-sketch="2" d="M146,142 L184,130 L189,146 L151,152 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M158,132 L198,116 L204,132 L164,146 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M152,120 L190,102 L198,118 L160,134 Z" fill="#FCFBF4"/>
+    <path data-sketch="2" d="M150,68 L206,124" stroke="#EE1D66" stroke-width="5"/>
+    <path data-sketch="2" d="M206,68 L150,124" stroke="#EE1D66" stroke-width="5"/>
+  </g>
+  <!-- i r1c2 podium -->
+  <g transform="translate(652,1440)">
+    <path data-sketch="2" d="M116,50 A12,12 0 1,0 116,74 A12,12 0 1,0 116,50 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M116,74 L116,90"/>
+    <path data-sketch="2" d="M96,90 L152,90 L152,152 L96,152 Z" fill="#CBF25C"/>
+    <text class="mk" x="124" y="130" font-size="30" fill="#22235C" text-anchor="middle" stroke="none">1</text>
+    <path data-sketch="2" d="M52,82 A10,10 0 1,0 52,102 A10,10 0 1,0 52,82 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M52,102 L52,114"/>
+    <path data-sketch="2" d="M32,114 L88,114 L88,152 L32,152 Z" fill="#F8CADB"/>
+    <text class="mk" x="60" y="142" font-size="24" fill="#22235C" text-anchor="middle" stroke="none">2</text>
+    <path data-sketch="2" d="M180,96 A10,10 0 1,0 180,116 A10,10 0 1,0 180,96 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M180,116 L180,128"/>
+    <path data-sketch="2" d="M160,128 L216,128 L216,152 L160,152 Z" fill="#7C7FE8"/>
+    <text class="mk" x="188" y="148" font-size="20" fill="#22235C" text-anchor="middle" stroke="none">3</text>
+  </g>
+  <!-- i r1c3 black box -->
+  <g transform="translate(948,1440)">
+    <path data-sketch="2" d="M68,44 L172,44 L172,124 L68,124 Z" fill="#16173C"/>
+    <text class="mk" x="120" y="102" font-size="52" fill="#CBF25C" text-anchor="middle" stroke="none">?</text>
+    <path data-sketch="1" d="M14,84 L62,84" marker-end="url(#ahNavy)"/>
+    <path data-sketch="1" d="M178,84 L226,84" marker-end="url(#ahNavy)"/>
+    <text class="cv" x="14" y="72" font-size="21" fill="#7C7FE8" stroke="none">in</text>
+    <text class="cv" x="196" y="72" font-size="21" fill="#7C7FE8" stroke="none">out</text>
+  </g>
+
+  <!-- i r2c0 inspection -->
+  <g transform="translate(60,1670)">
+    <path data-sketch="2" d="M48,20 L156,20 L156,144 L48,144 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M64,44 L140,44"/><path data-sketch="1" d="M64,60 L140,60"/>
+    <path data-sketch="1" d="M64,76 L140,76"/><path data-sketch="1" d="M64,92 L112,92"/>
+    <path data-sketch="2" d="M108,98 A32,32 0 1,0 172,98 A32,32 0 1,0 108,98 Z" fill="none" stroke-width="3.5"/>
+    <path data-sketch="2" d="M164,122 L200,152" stroke-width="6"/>
+    <path data-sketch="1" d="M128,88 L152,110" stroke="#EE1D66" stroke-width="4"/>
+    <path data-sketch="1" d="M152,88 L128,110" stroke="#EE1D66" stroke-width="4"/>
+  </g>
+  <!-- i r2c1 the wall -->
+  <g transform="translate(356,1670)">
+    <path data-sketch="2" d="M148,16 L218,16 L218,152 L148,152 Z" fill="#F8CADB"/>
+    <path data-sketch="1" d="M148,44 L218,44"/><path data-sketch="1" d="M148,72 L218,72"/>
+    <path data-sketch="1" d="M148,100 L218,100"/><path data-sketch="1" d="M148,128 L218,128"/>
+    <path data-sketch="1" d="M183,16 L183,44"/><path data-sketch="1" d="M166,44 L166,72"/>
+    <path data-sketch="1" d="M200,44 L200,72"/><path data-sketch="1" d="M183,72 L183,100"/>
+    <path data-sketch="1" d="M166,100 L166,128"/><path data-sketch="1" d="M200,100 L200,128"/>
+    <path data-sketch="1" d="M183,128 L183,152"/>
+    <path data-sketch="2" d="M84,50 A15,15 0 1,0 84,80 A15,15 0 1,0 84,50 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M84,80 L84,116"/>
+    <path data-sketch="1" d="M84,90 L120,96"/><path data-sketch="1" d="M84,90 L58,104"/>
+    <path data-sketch="1" d="M84,116 L70,152"/><path data-sketch="1" d="M84,116 L98,152"/>
+  </g>
+  <!-- i r2c2 signpost -->
+  <g transform="translate(652,1670)">
+    <path data-sketch="2" d="M118,152 L118,34" stroke-width="4"/>
+    <path data-sketch="2" d="M118,48 L54,48 L38,64 L54,80 L118,80 Z" fill="#CBF25C"/>
+    <path data-sketch="2" d="M118,94 L188,94 L204,110 L188,126 L118,126 Z" fill="#F8CADB"/>
+    <path data-sketch="1" d="M96,152 L140,152"/>
+  </g>
+  <!-- i r2c3 filing cabinet -->
+  <g transform="translate(948,1670)">
+    <path data-sketch="2" d="M70,34 L172,34 L172,152 L70,152 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M70,68 L172,68"/><path data-sketch="1" d="M108,52 L134,52"/>
+    <path data-sketch="1" d="M70,114 L172,114"/><path data-sketch="1" d="M108,134 L134,134"/>
+    <path data-sketch="2" d="M52,74 L156,74 L156,108 L52,108 Z" fill="#F8CADB"/>
+    <path data-sketch="1" d="M92,92 L118,92"/>
+    <path data-sketch="2" d="M112,6 L146,0 L152,24 L118,30 Z" fill="#FCFBF4"/>
+    <path data-sketch="1" d="M132,36 L120,66" stroke-dasharray="6 5" marker-end="url(#ahNavy)"/>
+  </g>
+
+  </g>
+
+  <text class="sh" x="180" y="1400" font-size="15" fill="#22235C" text-anchor="middle">desk</text>
+  <text class="sh" x="476" y="1400" font-size="15" fill="#22235C" text-anchor="middle">the pile</text>
+  <text class="sh" x="772" y="1400" font-size="15" fill="#22235C" text-anchor="middle">shrug</text>
+  <text class="sh" x="1068" y="1400" font-size="15" fill="#22235C" text-anchor="middle">handoff</text>
+
+  <text class="sh" x="180" y="1630" font-size="15" fill="#22235C" text-anchor="middle">robot</text>
+  <text class="sh" x="476" y="1630" font-size="15" fill="#22235C" text-anchor="middle">confident and wrong</text>
+  <text class="sh" x="772" y="1630" font-size="15" fill="#22235C" text-anchor="middle">podium</text>
+  <text class="sh" x="1068" y="1630" font-size="15" fill="#22235C" text-anchor="middle">black box</text>
+
+  <text class="sh" x="180" y="1860" font-size="15" fill="#22235C" text-anchor="middle">inspection</text>
+  <text class="sh" x="476" y="1860" font-size="15" fill="#22235C" text-anchor="middle">the wall</text>
+  <text class="sh" x="772" y="1860" font-size="15" fill="#22235C" text-anchor="middle">signpost</text>
+  <text class="sh" x="1068" y="1860" font-size="15" fill="#22235C" text-anchor="middle">filing cabinet</text>
+
+  <rect x="0" y="0" width="1240" height="1900" filter="url(#grain)" opacity=".055" style="mix-blend-mode:multiply" pointer-events="none"/>
+</svg>
+</div>
+
+<p class="meta"><span>/doodle skill &#183; assets/doodle-sheet.html</span><span>Copy the &lt;g&gt; you want, wrap it in translate and scale</span></p>
+
+<script>
+/* doodle sketch engine.
+   Turns clean SVG paths into hand-drawn ones. Paste inline into the page, so the
+   canvas stays one self-contained file.
+
+   Usage: mark any <path> with data-sketch="1" (single stroke) or "2" (double,
+   the default hand-drawn look), optionally data-amp="2.5" for wobble amplitude.
+   Then call sketchify('#note') once, after the SVG is in the document.
+
+   Every shape must be a <path>. getTotalLength is guaranteed on path in every
+   browser, and is not on rect/ellipse/circle, so write boxes as M/L/Z and
+   circles as two arcs rather than reaching for the convenience elements.
+
+   If the script never runs the page still reads. It degrades to clean lines,
+   which is the whole reason the geometry lives in markup and not in JS. */
+
+function sketchify(root) {
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = typeof root === 'string' ? document.querySelector(root) : root;
+  if (!svg) return;
+
+  function prng(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function wobble(el, seed, amp) {
+    var len = el.getTotalLength();
+    if (!len) return el.getAttribute('d');
+    var n = Math.max(3, Math.min(220, Math.round(len / 13)));
+    var r = prng(seed), pts = [], i, p;
+    for (i = 0; i <= n; i++) {
+      p = el.getPointAtLength(len * i / n);
+      pts.push([p.x + (r() - 0.5) * amp * 2, p.y + (r() - 0.5) * amp * 2]);
+    }
+    var d = 'M' + pts[0][0].toFixed(1) + ',' + pts[0][1].toFixed(1);
+    for (i = 1; i < n; i++) {
+      var mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2;
+      d += ' Q' + pts[i][0].toFixed(1) + ',' + pts[i][1].toFixed(1) + ' ' + mx.toFixed(1) + ',' + my.toFixed(1);
+    }
+    return d + ' L' + pts[n][0].toFixed(1) + ',' + pts[n][1].toFixed(1);
+  }
+
+  var carry = ['stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin',
+               'stroke-dasharray', 'marker-end', 'marker-start', 'style', 'opacity', 'transform'];
+
+  [].slice.call(svg.querySelectorAll('[data-sketch]')).forEach(function (el, idx) {
+    var passes = parseInt(el.getAttribute('data-sketch'), 10) || 1;
+    var amp = parseFloat(el.getAttribute('data-amp')) || 2.2;
+    var g = document.createElementNS(NS, 'g');
+    for (var pass = 0; pass < passes; pass++) {
+      var np = document.createElementNS(NS, 'path');
+      np.setAttribute('d', wobble(el, (idx + 3) * 9781 + pass * 3499, amp * (pass ? 1.3 : 1)));
+      carry.forEach(function (a) { if (el.hasAttribute(a)) np.setAttribute(a, el.getAttribute(a)); });
+      np.setAttribute('fill', pass === 0 ? (el.getAttribute('fill') || 'none') : 'none');
+      if (passes > 1 && pass > 0) np.setAttribute('opacity', '0.5');
+      g.appendChild(np);
+    }
+    el.parentNode.replaceChild(g, el);
+  });
+}
+
+sketchify('#sheet');
+</script>
